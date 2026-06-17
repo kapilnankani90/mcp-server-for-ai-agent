@@ -1,0 +1,21 @@
+# Google API Secrets
+credentials.json
+token.json
+client_secret_*.json
+.env
+
+
+
+# Python Virtual Environments and Cache
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# OS Specific
+.DS_Store
+Thumbs.db
