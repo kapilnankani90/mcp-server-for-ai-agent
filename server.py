@@ -74,7 +74,23 @@ async def ask_approval(action_name: str, payload: dict) -> bool:
 
     return await asyncio.to_thread(get_terminal_approval)
 
+@app.get("/", status_code=status.HTTP_200_OK)
+async def root():
+    """
+    Root status page for the Google MCP Server.
+    """
+    return {
+        "status": "online",
+        "service": "Google MCP Server",
+        "documentation": "/docs",
+        "endpoints": {
+            "append_to_doc": "POST /append_to_doc",
+            "create_email_draft": "POST /create_email_draft"
+        }
+    }
+
 @app.post("/append_to_doc", status_code=status.HTTP_200_OK)
+
 async def endpoint_append_to_doc(request: AppendToDocRequest):
     """
     FastAPI endpoint to append text to a Google Doc.
